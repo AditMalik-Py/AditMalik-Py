@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ASaura1o offers premium digital products including UI kits, templates, and design assets for creators and businesses. Instant downloads and lifetime updates.">
+    <meta name="keywords" content="digital products, premium templates, UI kits, design assets, website templates, graphics, icons, digital downloads, creative resources, design tools, business templates, presentation templates, digital marketplace, creative assets">
+    <meta name="author" content="ASaura1o">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://asaura1o.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asaura1o.com">
+    <meta property="og:title" content="ASaura1o - Premium Digital Products">
+    <meta property="og:description" content="Discover premium digital products for modern creators. High-quality templates, UI kits, and design assets with instant access.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://asaura1o.com">
+    <meta property="twitter:title" content="ASaura1o - Premium Digital Products">
+    <meta property="twitter:description" content="Discover premium digital products for modern creators. High-quality templates, UI kits, and design assets with instant access.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+    
+   
+    
+    <title>ASaura1o - Premium Digital Products for Modern Creators</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4"></script>
+    <script src="config.js
+"></script>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AcPhK47gTfxNGm9VD7tiovNp73-fhbM_KwSzX5Y4UAs-PL4Ahgt7aUuDgxQZ8FPXwyXkaJ34qSU6nUl1&currency=USD"></script>
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+        [data-theme="dark"] {
+            --text-color: #f3f4f6;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --border-color: #374151;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Backgrounds */
+        .stars-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+            display: none;
+        }
+        .stars-bg.active {
+            display: block;
+        }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .clouds-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, #e0f2fe, #f0f9ff);
+            display: none;
+        }
+        .clouds-bg.active {
+            display: block;
+        }
+        .cloud {
+            position: absolute;
+            background-color: white;
+            border-radius: 100px;
+            opacity: 0.8;
+        }
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            border-radius: 100px;
+        }
+        .cloud::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+        .cloud::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+        @keyframes float {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+        /* Header */
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .cart-button {
+            position: relative;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .user-menu {
+            position: relative;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            z-index: 101;
+            display: none;
+            margin-top: 0.5rem;
+        }
+        .user-dropdown.active {
+            display: block;
+        }
+        .user-dropdown a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        .user-dropdown a:hover {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+        .user-dropdown .divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0.5rem 0;
+        }
+        /* Hero Section */
+        .hero {
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            min-height: 80vh;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #5558e3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--card-bg);
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background-color: var(--card-bg);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-category {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-description {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: var(--card-bg);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        .author-info p {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: var(--text-color);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        .footer-column a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        /* Auth Modal */
+        .auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .auth-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .auth-content {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .auth-modal.active .auth-content {
+            transform: translateY(0);
+        }
+        .auth-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .auth-header h2 {
+            font-size: 1.5rem;
+        }
+        .close-auth {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .auth-body {
+            padding: 1.5rem;
+        }
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .auth-tab {
+            flex: 1;
+            padding: 0.75rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+        }
+        .auth-tab.active {
+            color: var(--primary-color);
+        }
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        .auth-tab-content {
+            display: none;
+        }
+        .auth-tab-content.active {
+            display: block;
+        }
+        .auth-form {
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .auth-footer {
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+        .auth-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .cart-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cart-content {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .cart-modal.active .cart-content {
+            transform: translateY(0);
+        }
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-header h2 {
+            font-size: 1.5rem;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .cart-items {
+            padding: 1.5rem;
+        }
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .cart-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .quantity-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        /* Checkout Form */
+        .checkout-form {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: none;
+        }
+        .checkout-form.active {
+            display: block;
+        }
+        /* Payment Methods Section */
+        .payment-methods {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--bg-color);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+        .payment-methods h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .payment-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .payment-tab {
+            flex: 1;
+            padding: 0.75rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .payment-tab.active {
+            color: var(--primary-color);
+        }
+        .payment-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        .payment-tab-content {
+            display: none;
+        }
+        .payment-tab-content.active {
+            display: block;
+        }
+        /* UPI Payment Section */
+        .upi-payment {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+        .upi-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .upi-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .upi-option:hover {
+            border-color: var(--primary-color);
+        }
+        .upi-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(99, 102, 241, 0.1);
+        }
+        .upi-option input[type="radio"] {
+            margin: 0;
+        }
+        .upi-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--bg-color);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+        .upi-qr img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 1rem;
+        }
+        .upi-id {
+            font-family: monospace;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .upi-instructions {
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        .payment-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #fef3c7;
+            color: #92400e;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        /* PayPal Payment Section */
+        .paypal-payment {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .paypal-button-container {
+            margin-top: 1rem;
+        }
+        #paypal-button-container {
+            min-height: 50px;
+        }
+        .paypal-instructions {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .admin-panel.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .admin-content {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .admin-panel.active .admin-content {
+            transform: translateY(0);
+        }
+        .admin-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .admin-header h2 {
+            font-size: 1.5rem;
+        }
+        .close-admin {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .admin-body {
+            padding: 1.5rem;
+        }
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .admin-tab {
+            padding: 0.75rem 1rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+        }
+        .admin-tab.active {
+            color: var(--primary-color);
+        }
+        .admin-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        .admin-tab-content {
+            display: none;
+        }
+        .admin-tab-content.active {
+            display: block;
+        }
+        .admin-form {
+            background-color: var(--bg-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        .admin-form h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-color);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .admin-table th,
+        .admin-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .admin-table th {
+            background-color: var(--card-bg);
+            font-weight: 600;
+        }
+        .admin-table tr:last-child td {
+            border-bottom: none;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .btn-small {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            border-radius: 0.25rem;
+        }
+        .btn-edit {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #ef4444;
+            color: white;
+        }
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.success {
+            background-color: #10b981;
+        }
+        .notification.error {
+            background-color: #ef4444;
+        }
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .loading-content {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+        /* Admin Button */
+        .admin-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 100;
+            transition: var(--transition);
+        }
+        .admin-button:hover {
+            transform: scale(1.1);
+        }
+        /* User Orders Section */
+        .user-orders {
+            padding: 5rem 5%;
+            display: none;
+        }
+        .user-orders.active {
+            display: block;
+        }
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .orders-table th,
+        .orders-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .orders-table th {
+            background-color: var(--bg-color);
+            font-weight: 600;
+        }
+        .orders-table tr:last-child td {
+            border-bottom: none;
+        }
+        .order-status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .status-pending {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .status-completed {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .status-cancelled {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .download-btn {
+            padding: 0.25rem 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        .download-btn:hover {
+            background-color: #5558e3;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+            .cart-content,
+            .admin-content,
+            .auth-content {
+                width: 95%;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .admin-table,
+            .orders-table {
+                font-size: 0.875rem;
+            }
+            .admin-table th,
+            .admin-table td,
+            .orders-table th,
+            .orders-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Backgrounds -->
+    <div class="stars-bg" id="starsBg"></div>
+    <div class="clouds-bg active" id="cloudsBg"></div>
+    
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-cube"></i>
+            ASaura1o
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="userOrdersLink" style="display: none;">My Orders</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="cart-button" id="cartButton">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" id="userOrdersLink2">My Orders</a>
+                    <a href="#" id="logoutBtn">Logout</a>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="loginBtn">Login</button>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Premium Digital Products for Modern Creators</h1>
+                <p>Discover our collection of high-quality digital assets, templates, and tools designed to elevate your projects and streamline your workflow.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>
+                        Browse Products
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital Products">
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title">Why Choose ASaura1o</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Instant Access</h3>
+                    <p>Get immediate access to all your purchased digital products. No waiting, just instant downloads.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Lifetime Updates</h3>
+                    <p>Receive free updates for all products. We continuously improve our offerings based on your feedback.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is available around the clock to help you with any questions or issues.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here from Supabase -->
+            </div>
+        </section>
+
+        <!-- User Orders Section -->
+        <section class="user-orders" id="userOrders">
+            <h2 class="section-title">My Orders</h2>
+            <div class="orders-table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userOrdersTableBody">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">ASaura1o has completely transformed my workflow. The quality of their digital products is unmatched, and the customer support is exceptional.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've purchased several templates from ASaura1o, and each one has exceeded my expectations. The attention to detail is incredible.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a freelancer, ASaura1o has become my go-to resource for high-quality digital assets. It's saved me countless hours of work.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ASaura1o</h3>
+                    <p>Premium digital products for modern creators and businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">UI Kits</a></li>
+                        <li><a href="#">Icon Sets</a></li>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Presentations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASaura1o. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-content">
+            <div class="auth-header">
+                <h2 id="authModalTitle">Login</h2>
+                <button class="close-auth" id="closeAuth">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-auth="login">Login</button>
+                    <button class="auth-tab" data-auth="signup">Sign Up</button>
+                </div>
+                
+                <div class="auth-tab-content active" id="login-tab">
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" class="switch-auth" data-auth="signup">Sign Up</a></p>
+                    </div>
+                </div>
+                
+                <div class="auth-tab-content" id="signup-tab">
+                    <form id="signupForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#" class="switch-auth" data-auth="login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart" id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" id="continueShopping">Continue Shopping</button>
+                    <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+                </div>
+            </div>
+            <div class="checkout-form" id="checkoutForm">
+                <h3>Checkout Information</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Payment Method</h3>
+                        <div class="payment-tabs">
+                            <button class="payment-tab active" data-payment="upi">
+                                <i class="fas fa-mobile-alt"></i> UPI
+                            </button>
+                            <button class="payment-tab" data-payment="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </button>
+                        </div>
+                        
+                        <div class="payment-tab-content active" id="upi-payment-tab">
+                            <div class="upi-payment">
+                                <div class="upi-options">
+                                    <div class="upi-option" data-upi="asaura1o@upi">
+                                        <input type="radio" name="upiOption" value="asaura1o@upi" id="upi1">
+                                        <label for="upi1">Pay with UPI ID: asaura1o@upi</label>
+                                    </div>
+                                    <div class="upi-option" data-upi="asaura1o@ybl">
+                                        <input type="radio" name="upiOption" value="asaura1o@ybl" id="upi2">
+                                        <label for="upi2">Pay with UPI ID: asaura1o@ybl</label>
+                                    </div>
+                                    <div class="upi-option" data-upi="asaura1o@okicici">
+                                        <input type="radio" name="upiOption" value="asaura1o@okicici" id="upi3">
+                                        <label for="upi3">Pay with UPI ID: asaura1o@okicici</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="upi-qr" id="upiQr" style="display: none;">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=asaura1o@upi&pn=ASaura1o&am=0&tn=Payment%20for%20ASaura1o%20Products" alt="UPI QR Code">
+                                    <div class="upi-id" id="selectedUpiId">asaura1o@upi</div>
+                                    <div class="upi-instructions">Scan the QR code with any UPI app to complete payment</div>
+                                </div>
+                                
+                                <div class="payment-status" id="paymentStatus" style="display: none;">
+                                    Please complete the payment and then click "Confirm Payment" below.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-tab-content" id="paypal-payment-tab">
+                            <div class="paypal-payment">
+                                <p>Pay securely with PayPal. You can pay with your PayPal account or credit/debit card.</p>
+                                <div class="paypal-button-container">
+                                    <div id="paypal-button-container"></div>
+                                </div>
+                                <p class="paypal-instructions">After completing your payment, click "Confirm Payment" below.</p>
+                                <div class="payment-status" id="paypalPaymentStatus" style="display: none;">
+                                    Please complete the PayPal payment and then click "Confirm Payment" below.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3"></textarea>
+                    </div>
+                    <div class="cart-actions">
+                        <button type="button" class="btn btn-secondary" id="backToCart">Back to Cart</button>
+                        <button type="submit" class="btn btn-primary" id="confirmPayment">Confirm Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-content">
+            <div class="admin-header">
+                <h2>Admin Panel</h2>
+                <button class="close-admin" id="closeAdmin">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="admin-body">
+                <div class="admin-tabs">
+                    <button class="admin-tab active" data-tab="products">Products</button>
+                    <button class="admin-tab" data-tab="orders">Orders</button>
+                    <button class="admin-tab" data-tab="users">Users</button>
+                </div>
+                
+                <div class="admin-tab-content active" id="products-tab">
+                    <div class="admin-form">
+                        <h3>Add New Product</h3>
+                        <form id="addProductForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" id="productName" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productCategory">Category</label>
+                                    <input type="text" id="productCategory" name="category" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productPrice">Price ($)</label>
+                                    <input type="number" id="productPrice" name="price" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productImage">Image URL</label>
+                                    <input type="url" id="productImage" name="image" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="downloadFile">Download File URL</label>
+                                    <input type="url" id="downloadFile" name="downloadFile" placeholder="https://example.com/file.zip">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="productDescription">Description</label>
+                                <textarea id="productDescription" name="description" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Product</button>
+                        </form>
+                    </div>
+                    
+                    <h3>Manage Products</h3>
+                    <div id="productsTable">
+                        <!-- Products table will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="admin-tab-content" id="orders-tab">
+                    <h3>Manage Orders</h3>
+                    <div id="ordersTable">
+                        <!-- Orders table will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="admin-tab-content" id="users-tab">
+                    <h3>Manage Users</h3>
+                    <div id="usersTable">
+                        <!-- Users table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Button -->
+    <button class="admin-button" id="adminButton" title="Admin Panel">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+
+    <script>
+        // Initialize Supabase
+        // REPLACE THESE WITH YOUR ACTUAL SUPABASE CREDENT
+        const SUPABASE_URL = window.env.SUPABASE_URL 
+        const SUPABASE_ANON_KEY = window.env.SUPABASE_ANON_KEY
+        const SUPABASE_SERVICE_ROLE_KEY = window.env.SUPABASE_SERVICE_ROLE_KEY
+        // Create Supabase client with the anon key (for public operations)
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // Create a separate client with the service role key (for admin operations)
+        const supabaseAdmin = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+        
+        // App state
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let products = [];
+        let orders = [];
+        let user = null;
+        let selectedUpiId = null;
+        let selectedPaymentMethod = 'upi';
+        let paypalOrderID = null;
+        let isAdminAuthenticated = false;
+        
+        // DOM elements
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const starsBg = document.getElementById('starsBg');
+        const cloudsBg = document.getElementById('cloudsBg');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        const cartButton = document.getElementById('cartButton');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartFooter = document.getElementById('cartFooter');
+        const cartTotal = document.getElementById('cartTotal');
+        const continueShopping = document.getElementById('continueShopping');
+        const checkoutButton = document.getElementById('checkoutButton');
+        const checkoutFormDiv = document.getElementById('checkoutForm');
+        const backToCart = document.getElementById('backToCart');
+        const orderForm = document.getElementById('orderForm');
+        const confirmPayment = document.getElementById('confirmPayment');
+        
+        const mainContent = document.getElementById('mainContent');
+        const productsGrid = document.getElementById('productsGrid');
+        
+        const notification = document.getElementById('notification');
+        
+        // Auth elements
+        const authModal = document.getElementById('authModal');
+        const closeAuth = document.getElementById('closeAuth');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authTabContents = document.querySelectorAll('.auth-tab-content');
+        const switchAuthLinks = document.querySelectorAll('.switch-auth');
+        const userMenu = document.getElementById('userMenu');
+        const userAvatar = document.getElementById('userAvatar');
+        const userDropdown = document.getElementById('userDropdown');
+        const userOrdersLink = document.getElementById('userOrdersLink');
+        const userOrdersLink2 = document.getElementById('userOrdersLink2');
+        const userOrdersSection = document.getElementById('userOrders');
+        const userOrdersTableBody = document.getElementById('userOrdersTableBody');
+        
+        // Payment elements
+        const paymentTabs = document.querySelectorAll('.payment-tab');
+        const paymentTabContents = document.querySelectorAll('.payment-tab-content');
+        
+        // UPI payment elements
+        const upiOptions = document.querySelectorAll('.upi-option');
+        const upiQr = document.getElementById('upiQr');
+        const selectedUpiIdElement = document.getElementById('selectedUpiId');
+        const paymentStatus = document.getElementById('paymentStatus');
+        
+        // PayPal payment elements
+        const paypalButtonContainer = document.getElementById('paypal-button-container');
+        const paypalPaymentStatus = document.getElementById('paypalPaymentStatus');
+        
+        // Admin panel elements
+        const adminButton = document.getElementById('adminButton');
+        const adminPanel = document.getElementById('adminPanel');
+        const closeAdmin = document.getElementById('closeAdmin');
+        const adminTabs = document.querySelectorAll('.admin-tab');
+        const addProductForm = document.getElementById('addProductForm');
+        const productsTable = document.getElementById('productsTable');
+        const ordersTable = document.getElementById('ordersTable');
+        const usersTable = document.getElementById('usersTable');
+        
+        // Loading overlay
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        
+        // Initialize app
+        async function init() {
+            // Check for saved theme preference or default to light
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                starsBg.classList.add('active');
+                cloudsBg.classList.remove('active');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Initialize backgrounds
+            createStars();
+            createClouds();
+            
+            // Check if user is logged in
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                user = session.user;
+                updateUserUI();
+                loadUserOrders();
+            }
+            
+            // Load products from Supabase
+            loadProducts();
+            
+            // Update cart
+            updateCart();
+            
+            // Setup payment methods
+            setupPaymentMethods();
+            
+            // Setup UPI payment options
+            setupUpiPayment();
+            
+            // Setup admin panel
+            setupAdminPanel();
+            
+            // Setup auth
+            setupAuth();
+        }
+        
+        // Format price in USD
+        function formatPrice(price) {
+            return `$${parseFloat(price).toFixed(2)}`;
+        }
+        
+        // Setup payment methods
+        function setupPaymentMethods() {
+            paymentTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const paymentMethod = tab.getAttribute('data-payment');
+                    
+                    // Update active tab
+                    paymentTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    paymentTabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${paymentMethod}-payment-tab`).classList.add('active');
+                    
+                    // Update selected payment method
+                    selectedPaymentMethod = paymentMethod;
+                    
+                    // Reset payment status
+                    paymentStatus.style.display = 'none';
+                    paypalPaymentStatus.style.display = 'none';
+                    
+                    // Initialize PayPal button if switching to PayPal
+                    if (paymentMethod === 'paypal') {
+                        initializePayPalButton();
+                    }
+                });
+            });
+        }
+        
+        // Setup authentication
+        function setupAuth() {
+            // Login button click
+            loginBtn.addEventListener('click', () => {
+                authModal.classList.add('active');
+            });
+            
+            // Close auth modal
+            closeAuth.addEventListener('click', () => {
+                authModal.classList.remove('active');
+            });
+            
+            // Auth tab switching
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const authType = tab.getAttribute('data-auth');
+                    
+                    // Update active tab
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    authTabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${authType}-tab`).classList.add('active');
+                    
+                    // Update modal title
+                    document.getElementById('authModalTitle').textContent = 
+                        authType === 'login' ? 'Login' : 'Sign Up';
+                });
+            });
+            
+            // Switch auth links
+            switchAuthLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const authType = link.getAttribute('data-auth');
+                    
+                    // Update active tab
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    document.querySelector(`.auth-tab[data-auth="${authType}"]`).classList.add('active');
+                    
+                    // Show corresponding content
+                    authTabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${authType}-tab`).classList.add('active');
+                    
+                    // Update modal title
+                    document.getElementById('authModalTitle').textContent = 
+                        authType === 'login' ? 'Login' : 'Sign Up';
+                });
+            });
+            
+            // Login form submission
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                try {
+                    showLoading(true);
+                    
+                    const { data, error } = await supabase.auth.signInWithPassword({
+                        email,
+                        password
+                    });
+                    
+                    if (error) throw error;
+                    
+                    user = data.user;
+                    updateUserUI();
+                    authModal.classList.remove('active');
+                    showNotification('Login successful!', 'success');
+                    loadUserOrders();
+                } catch (error) {
+                    console.error('Error logging in:', error);
+                    showNotification(error.message || 'Failed to login', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            });
+            
+            // Signup form submission
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+                
+                try {
+                    showLoading(true);
+                    
+                    const { data, error } = await supabase.auth.signUp({
+                        email,
+                        password,
+                        options: {
+                            data: {
+                                name
+                            }
+                        }
+                    });
+                    
+                    if (error) throw error;
+                    
+                    user = data.user;
+                    updateUserUI();
+                    authModal.classList.remove('active');
+                    showNotification('Account created successfully!', 'success');
+                    
+                    // Create user profile in the users table
+                    await supabase
+                        .from('users')
+                        .insert([
+                            { id: user.id, name, email }
+                        ]);
+                } catch (error) {
+                    console.error('Error signing up:', error);
+                    showNotification(error.message || 'Failed to create account', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            });
+            
+            // Logout button click
+            logoutBtn.addEventListener('click', async () => {
+                try {
+                    showLoading(true);
+                    
+                    await supabase.auth.signOut();
+                    
+                    user = null;
+                    updateUserUI();
+                    userOrdersSection.classList.remove('active');
+                    showNotification('Logged out successfully', 'success');
+                } catch (error) {
+                    console.error('Error logging out:', error);
+                    showNotification('Failed to logout', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            });
+            
+            // User menu dropdown
+            userAvatar.addEventListener('click', () => {
+                userDropdown.classList.toggle('active');
+            });
+            
+            // User orders links
+            userOrdersLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                userOrdersSection.classList.add('active');
+                window.scrollTo({
+                    top: userOrdersSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+            
+            userOrdersLink2.addEventListener('click', (e) => {
+                e.preventDefault();
+                userDropdown.classList.remove('active');
+                userOrdersSection.classList.add('active');
+                window.scrollTo({
+                    top: userOrdersSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!userMenu.contains(e.target)) {
+                    userDropdown.classList.remove('active');
+                }
+            });
+        }
+        
+        // Update user UI based on authentication state
+        function updateUserUI() {
+            if (user) {
+                loginBtn.style.display = 'none';
+                userMenu.style.display = 'block';
+                userOrdersLink.style.display = 'block';
+                
+                // Set user avatar initial
+                const userName = user.user_metadata?.name || user.email?.charAt(0).toUpperCase() || 'U';
+                userAvatar.textContent = userName.charAt(0).toUpperCase();
+            } else {
+                loginBtn.style.display = 'block';
+                userMenu.style.display = 'none';
+                userOrdersLink.style.display = 'none';
+            }
+        }
+        
+        // Load user orders
+        async function loadUserOrders() {
+            if (!user) return;
+            
+            try {
+                showLoading(true);
+                
+                const { data, error } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                renderUserOrders(data);
+            } catch (error) {
+                console.error('Error loading user orders:', error);
+                showNotification('Failed to load your orders', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Render user orders
+        function renderUserOrders(orders) {
+            userOrdersTableBody.innerHTML = '';
+            
+            if (orders.length === 0) {
+                userOrdersTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No orders found</td></tr>';
+                return;
+            }
+            
+            orders.forEach(order => {
+                const orderDate = new Date(order.created_at).toLocaleDateString();
+                const orderStatus = order.status || 'pending';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>#${order.id}</td>
+                    <td>${orderDate}</td>
+                    <td>${formatPrice(order.total)}</td>
+                    <td><span class="order-status status-${orderStatus}">${orderStatus.charAt(0).toUpperCase() + orderStatus.slice(1)}</span></td>
+                    <td>
+                        ${orderStatus === 'completed' ? 
+                            `<a href="${order.download_link || '#'}" class="download-btn" target="_blank">Download</a>` : 
+                            'N/A'}
+                    </td>
+                `;
+                userOrdersTableBody.appendChild(row);
+            });
+        }
+        
+        // Function to check admin password
+        function checkAdminPassword() {
+            const password = prompt("Please enter the admin password:");
+            
+            if (password === window.env.ADMIN_PASSWORD) {
+                isAdminAuthenticated = true;
+                return true;
+            } else if (password !== null) {
+                showNotification("Incorrect password. Access denied.", "error");
+                return false;
+            }
+            return false;
+        }
+        
+        // Setup UPI payment options
+        function setupUpiPayment() {
+            upiOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove selected class from all options
+                    upiOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    
+                    // Get the UPI ID
+                    selectedUpiId = option.getAttribute('data-upi');
+                    
+                    // Update the selected UPI ID display
+                    selectedUpiIdElement.textContent = selectedUpiId;
+                    
+                    // Show the QR code
+                    upiQr.style.display = 'flex';
+                    
+                    // Update the QR code image
+                    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    
+                    const qrImage = upiQr.querySelector('img');
+                    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${selectedUpiId}&pn=ASaura1o&am=${total}&tn=Payment%20for%20ASaura1o%20Products`;
+                    
+                    // Add mobile UPI payment link
+                    const upiLinkElement = document.createElement('a');
+                    upiLinkElement.href = `upi://pay?pa=${selectedUpiId}&pn=ASaura1o&am=${total}&tn=Payment%20for%20ASaura1o%20Products`;
+                    upiLinkElement.className = 'btn btn-primary';
+                    upiLinkElement.textContent = 'Pay with UPI App';
+                    upiLinkElement.style.marginTop = '10px';
+                    upiLinkElement.target = '_blank';
+                    
+                    // Remove any existing UPI link
+                    const existingLink = upiQr.querySelector('a');
+                    if (existingLink) {
+                        existingLink.remove();
+                    }
+                    
+                    // Add the UPI link
+                    upiQr.appendChild(upiLinkElement);
+                    
+                    // Show payment status message
+                    paymentStatus.style.display = 'block';
+                });
+            });
+        }
+        
+        // Initialize PayPal button
+        function initializePayPalButton() {
+            // Clear existing PayPal button
+            paypalButtonContainer.innerHTML = '';
+            
+            // Calculate total in USD
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Render PayPal button
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: total.toFixed(2)
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Save PayPal order ID for confirmation
+                        paypalOrderID = details.id;
+                        
+                        // Show payment status
+                        paypalPaymentStatus.style.display = 'block';
+                        
+                        showNotification('PayPal payment approved! Please confirm your order.', 'success');
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal error:', err);
+                    showNotification('PayPal payment failed. Please try again.', 'error');
+                }
+            }).render('#paypal-button-container');
+        }
+        
+        // Setup admin panel
+        function setupAdminPanel() {
+            adminButton.addEventListener('click', () => {
+                if (isAdminAuthenticated || checkAdminPassword()) {
+                    adminPanel.classList.add('active');
+                    loadAdminProducts();
+                    loadAdminOrders();
+                    loadAdminUsers();
+                }
+            });
+            
+            closeAdmin.addEventListener('click', () => {
+                adminPanel.classList.remove('active');
+            });
+            
+            adminTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    adminTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    document.querySelectorAll('.admin-tab-content').forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${tabName}-tab`).classList.add('active');
+                });
+            });
+            
+            addProductForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(addProductForm);
+                const productData = {
+                    name: formData.get('name'),
+                    category: formData.get('category'),
+                    price: parseFloat(formData.get('price')),
+                    image: formData.get('image'),
+                    description: formData.get('description'),
+                    download_file: formData.get('downloadFile')
+                };
+                
+                try {
+                    showLoading(true);
+                    
+                    const { data, error } = await supabase
+                        .from('products')
+                        .insert([productData])
+                        .select();
+                    
+                    if (error) throw error;
+                    
+                    showNotification('Product added successfully!', 'success');
+                    addProductForm.reset();
+                    loadProducts();
+                    loadAdminProducts();
+                } catch (error) {
+                    console.error('Error adding product:', error);
+                    showNotification('An error occurred. Please try again.', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            });
+        }
+        
+        // Load products from Supabase
+        async function loadProducts() {
+            const { data, error } = await supabase.from("products").select("*");
+            try {
+                showLoading(true);
+                
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                products = data;
+                renderProducts();
+            } catch (error) {
+                console.error('Error loading products:', error);
+                showNotification('An error occurred while loading products', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Load admin products
+        async function loadAdminProducts() {
+            try {
+                showLoading(true);
+                
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                renderAdminProducts(data);
+            } catch (error) {
+                console.error('Error loading admin products:', error);
+                showNotification('Failed to load products', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Load admin orders
+        async function loadAdminOrders() {
+            try {
+                showLoading(true);
+                
+                const { data, error } = await supabase
+                    .from('orders')
+                    .select(`
+                        *,
+                        users(name, email)
+                    `)
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                renderAdminOrders(data);
+            } catch (error) {
+                console.error('Error loading admin orders:', error);
+                showNotification('Failed to load orders', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Load admin users
+        async function loadAdminUsers() {
+            try {
+                showLoading(true);
+                
+                const { data, error } = await supabase
+                    .from('users')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                renderAdminUsers(data);
+            } catch (error) {
+                console.error('Error loading admin users:', error);
+                showNotification('Failed to load users', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Render products
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+            
+            if (products.length === 0) {
+                productsGrid.innerHTML = '<p>No products available.</p>';
+                return;
+            }
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-footer">
+                            <div class="product-price">${formatPrice(product.price)}</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                data-id="${product.id}" 
+                                data-name="${product.name}" 
+                                data-price="${product.price}" 
+                                data-image="${product.image}">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+            
+            // Add event listeners to add-to-cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+        }
+        
+        // Render admin products
+        function renderAdminProducts(products) {
+            let tableHtml = `
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price ($)</th>
+                            <th>Download File</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            products.forEach(product => {
+                tableHtml += `
+                    <tr>
+                        <td>${product.id}</td>
+                        <td>${product.name}</td>
+                        <td>${product.category}</td>
+                        <td>$${parseFloat(product.price).toFixed(2)}</td>
+                        <td>${product.download_file || 'N/A'}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-delete delete-product" data-id="${product.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableHtml += `
+                    </tbody>
+                </table>
+            `;
+            
+            productsTable.innerHTML = tableHtml;
+            
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-product').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const productId = button.getAttribute('data-id');
+                    
+                    if (confirm('Are you sure you want to delete this product?')) {
+                        try {
+                            showLoading(true);
+                            
+                            const { error } = await supabase
+                                .from('products')
+                                .delete()
+                                .eq('id', productId);
+                            
+                            if (error) throw error;
+                            
+                            showNotification('Product deleted successfully!', 'success');
+                            loadProducts();
+                            loadAdminProducts();
+                        } catch (error) {
+                            console.error('Error deleting product:', error);
+                            showNotification('An error occurred. Please try again.', 'error');
+                        } finally {
+                            showLoading(false);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Render admin orders
+        function renderAdminOrders(orders) {
+            let tableHtml = `
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            orders.forEach(order => {
+                const orderDate = new Date(order.created_at).toLocaleDateString();
+                const customerName = order.users?.name || 'Unknown';
+                const customerEmail = order.users?.email || 'Unknown';
+                
+                tableHtml += `
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${customerName}</td>
+                        <td>${customerEmail}</td>
+                        <td>${formatPrice(order.total)}</td>
+                        <td>${orderDate}</td>
+                        <td>
+                            <select class="order-status-select" data-id="${order.id}">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>Completed</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-edit update-order-status" data-id="${order.id}">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableHtml += `
+                    </tbody>
+                </table>
+            `;
+            
+            ordersTable.innerHTML = tableHtml;
+            
+            // Add event listeners to update status buttons
+            document.querySelectorAll('.update-order-status').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const orderId = button.getAttribute('data-id');
+                    const statusSelect = document.querySelector(`.order-status-select[data-id="${orderId}"]`);
+                    const newStatus = statusSelect.value;
+                    
+                    try {
+                        showLoading(true);
+                        
+                        const { error } = await supabase
+                            .from('orders')
+                            .update({ status: newStatus })
+                            .eq('id', orderId);
+                        
+                        if (error) throw error;
+                        
+                        showNotification('Order status updated successfully!', 'success');
+                        loadAdminOrders();
+                        
+                        // If user is logged in and this is their order, refresh their orders too
+                        if (user) {
+                            loadUserOrders();
+                        }
+                    } catch (error) {
+                        console.error('Error updating order status:', error);
+                        showNotification('An error occurred. Please try again.', 'error');
+                    } finally {
+                        showLoading(false);
+                    }
+                });
+            });
+        }
+        
+        // Render admin users
+        function renderAdminUsers(users) {
+            let tableHtml = `
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            users.forEach(user => {
+                const joinDate = new Date(user.created_at).toLocaleDateString();
+                
+                tableHtml += `
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${joinDate}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-small btn-delete delete-user" data-id="${user.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableHtml += `
+                    </tbody>
+                </table>
+            `;
+            
+            usersTable.innerHTML = tableHtml;
+            
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-user').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const userId = button.getAttribute('data-id');
+                    
+                    if (confirm('Are you sure you want to delete this user?')) {
+                        try {
+                            showLoading(true);
+                            
+                            // Use the admin client to delete user from auth
+                            const { error: authError } = await supabaseAdmin.auth.admin.deleteUser(userId);
+                            
+                            if (authError) throw authError;
+                            
+                            // Delete user from users table
+                            const { error: userError } = await supabase
+                                .from('users')
+                                .delete()
+                                .eq('id', userId);
+                            
+                            if (userError) throw userError;
+                            
+                            showNotification('User deleted successfully!', 'success');
+                            loadAdminUsers();
+                        } catch (error) {
+                            console.error('Error deleting user:', error);
+                            showNotification('An error occurred. Please try again.', 'error');
+                        } finally {
+                            showLoading(false);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                starsBg.classList.remove('active');
+                cloudsBg.classList.add('active');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                starsBg.classList.add('active');
+                cloudsBg.classList.remove('active');
+                themeIcon.classList.add('fa-sun');
+                themeIcon.classList.remove('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Create stars for dark theme
+        function createStars() {
+            const starsContainer = starsBg;
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random size
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create clouds for light theme
+        function createClouds() {
+            const cloudsContainer = cloudsBg;
+            const cloudCount = 10;
+            
+            for (let i = 0; i < cloudCount; i++) {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                
+                // Random size
+                const width = 80 + Math.random() * 100;
+                cloud.style.width = `${width}px`;
+                cloud.style.height = `${width * 0.6}px`;
+                
+                // Random position
+                cloud.style.left = `${Math.random() * 100}%`;
+                cloud.style.top = `${Math.random() * 70}%`;
+                
+                // Random animation duration and delay
+                cloud.style.animation = `float ${30 + Math.random() * 60}s linear infinite`;
+                cloud.style.animationDelay = `${Math.random() * 30}s`;
+                
+                cloudsContainer.appendChild(cloud);
+            }
+        }
+        
+        // Cart functionality
+        function updateCart() {
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Update cart display
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartFooter.style.display = 'none';
+            } else {
+                cartItems.innerHTML = '';
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">${item.name}</h3>
+                            <div class="cart-item-price">${formatPrice(item.price)}</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn decrease-quantity" data-id="${item.id}">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span>${item.quantity}</span>
+                                    <button class="quantity-btn increase-quantity" data-id="${item.id}">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button class="remove-item" data-id="${item.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+                
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+                cartFooter.style.display = 'block';
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.decrease-quantity').forEach(button => {
+                    button.addEventListener('click', decreaseQuantity);
+                });
+                
+                document.querySelectorAll('.increase-quantity').forEach(button => {
+                    button.addEventListener('click', increaseQuantity);
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', removeItem);
+                });
+            }
+        }
+        
+        function addToCart(e) {
+            const button = e.currentTarget;
+            const id = button.getAttribute('data-id');
+            const name = button.getAttribute('data-name');
+            const price = parseFloat(button.getAttribute('data-price'));
+            const image = button.getAttribute('data-image');
+            
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            showNotification(`${name} added to cart!`, 'success');
+        }
+        
+        function decreaseQuantity(e) {
+            const id = e.currentTarget.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            
+            if (item.quantity > 1) {
+                item.quantity--;
+                updateCart();
+            }
+        }
+        
+        function increaseQuantity(e) {
+            const id = e.currentTarget.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            
+            item.quantity++;
+            updateCart();
+        }
+        
+        function removeItem(e) {
+            const id = e.currentTarget.getAttribute('data-id');
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+            showNotification('Item removed from cart', 'success');
+        }
+        
+        // Cart Modal
+        cartButton.addEventListener('click', () => {
+            cartModal.classList.add('active');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+            checkoutFormDiv.classList.remove('active');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+        });
+        
+        checkoutButton.addEventListener('click', () => {
+            checkoutFormDiv.classList.add('active');
+            
+            // Initialize PayPal button if PayPal is selected
+            if (selectedPaymentMethod === 'paypal') {
+                initializePayPalButton();
+            }
+        });
+        
+        backToCart.addEventListener('click', () => {
+            checkoutFormDiv.classList.remove('active');
+        });
+        
+        // Order form submission with better error handling
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Check if user is logged in
+            if (!user) {
+                showNotification('Please login to place an order', 'error');
+                authModal.classList.add('active');
+                return;
+            }
+            
+            // Validate payment method
+            if (selectedPaymentMethod === 'upi' && !selectedUpiId) {
+                showNotification('Please select a UPI payment option', 'error');
+                return;
+            }
+            
+            if (selectedPaymentMethod === 'paypal' && !paypalOrderID) {
+                showNotification('Please complete the PayPal payment first', 'error');
+                return;
+            }
+            
+            const formData = new FormData(orderForm);
+            const orderItems = cart.map(item => ({
+                product_id: item.id,
+                product_name: item.name,
+                price: item.price,
+                quantity: item.quantity
+            }));
+            
+            // Calculate total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            const orderData = {
+                user_id: user.id,
+                full_name: formData.get('fullName'),
+                email: formData.get('email'),
+                items: orderItems,
+                total: total,
+                payment_method: selectedPaymentMethod,
+                upi_id: selectedPaymentMethod === 'upi' ? selectedUpiId : null,
+                paypal_order_id: selectedPaymentMethod === 'paypal' ? paypalOrderID : null,
+                notes: formData.get('notes'),
+                status: 'pending'
+            };
+            
+            try {
+                // Show loading state
+                const submitButton = orderForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Processing...';
+                submitButton.disabled = true;
+                
+                showLoading(true);
+                
+                // Insert order into Supabase
+                const { data, error } = await supabase
+                    .from('orders')
+                    .insert([orderData])
+                    .select();
+                
+                if (error) throw error;
+                
+                // Clear cart
+                cart = [];
+                updateCart();
+                
+                // Close cart modal
+                cartModal.classList.remove('active');
+                checkoutFormDiv.classList.remove('active');
+                
+                // Show success message
+                showNotification('Order placed successfully! You will receive the products shortly.', 'success');
+                
+                // Reset form
+                orderForm.reset();
+                
+                // Reset payment selections
+                upiOptions.forEach(opt => opt.classList.remove('selected'));
+                upiQr.style.display = 'none';
+                paymentStatus.style.display = 'none';
+                paypalPaymentStatus.style.display = 'none';
+                selectedUpiId = null;
+                paypalOrderID = null;
+                
+                // Refresh user orders
+                loadUserOrders();
+            } catch (error) {
+                console.error('Error placing order:', error);
+                showNotification('Failed to place order. Please check your information and try again.', 'error');
+            } finally {
+                // Reset button state
+                const submitButton = orderForm.querySelector('button[type="submit"]');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showLoading(false);
+            }
+        });
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Show/hide loading overlay
+        function showLoading(show) {
+            if (show) {
+                loadingOverlay.classList.add('active');
+            } else {
+                loadingOverlay.classList.remove('active');
+            }
+        }
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.remove('active');
+                checkoutFormDiv.classList.remove('active');
+            }
+            
+            if (e.target === authModal) {
+                authModal.classList.remove('active');
+            }
+            
+            if (e.target === adminPanel) {
+                adminPanel.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Skip if it's a link to a page section
+                if (href === '#home' || href === '#features' || href === '#products' || href === '#testimonials' || href === '#contact') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+        
+        // Listen for auth state changes
+        supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_IN') {
+                user = session.user;
+                updateUserUI();
+                loadUserOrders();
+            } else if (event === 'SIGNED_OUT') {
+                user = null;
+                updateUserUI();
+                userOrdersSection.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
