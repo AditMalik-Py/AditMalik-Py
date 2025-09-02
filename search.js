@@ -1,5 +1,5 @@
 import express from "express";
-import { searchDeals } from "./deals-search.js";
+import { searchDeals } from "./search-deals.js";
 
 const app = express();
 app.get("/search", async (req, res) => {
